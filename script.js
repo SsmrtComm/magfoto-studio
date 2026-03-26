@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('magfoto_lang', lang);
     };
 
-    const initialLang = localStorage.getItem('magfoto_lang') || 'en';
+    const initialLang = localStorage.getItem('magfoto_lang') || 'de';
     setLanguage(initialLang);
 
     const langSwitcher = document.getElementById('lang-switcher');
