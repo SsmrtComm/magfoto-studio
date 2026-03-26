@@ -30,9 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: { 'Accept': 'application/json' }
         }).then(res => {
             if (res.ok) {
-                btn.innerText = 'Sent!';
+                btn.innerText = 'Sent! ✓';
                 form.reset();
-                setTimeout(() => { btn.innerText = originalText; btn.disabled = false; }, 3000);
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+                }, 2000);
             } else {
                 btn.innerText = 'Error — try again';
                 btn.disabled = false;
