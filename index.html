@@ -9,6 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1038173333"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1038173333');
+</script>
+
 </head>
 <body>
   <header class="site-header">
@@ -222,6 +232,11 @@
       <div class="container contact-panel">
         <h2 data-i18n="contact.title">Save the Date</h2>
         <p data-i18n="contact.text">Tell us about your event and we'll send you a custom quote within 24 hours.</p>
+        <div class="contact-methods">
+          <a href="https://wa.me/491525880014" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            <span class="whatsapp-icon">💬</span> Message on WhatsApp
+          </a>
+        </div>
         <form id="contactForm" action="https://formspree.io/f/xeepqjeq" method="POST" class="contact-form">
           <input type="hidden" id="package" name="package" value="" />
           <div class="form-row">
