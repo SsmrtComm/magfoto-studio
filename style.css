@@ -36,6 +36,8 @@ body { font-family: var(--font-base); background: var(--bg); color: var(--text-p
 .btn-outline-light { background: transparent; color: var(--white); border-color: var(--white); }
 .hero .btn-primary { background: rgba(255,255,255,0.95); color: #111; border-color: rgba(255,255,255,0.9); }
 .hero .btn-secondary { background: rgba(255,255,255,0.22); color: #fff; border-color: rgba(255,255,255,0.4); }
+.hero .btn-hero-whatsapp { background: #25D366; color: var(--white); border-color: #25D366; }
+.hero .btn-hero-whatsapp:hover { background: #1FAE53; border-color: #1FAE53; }
 .hero .btn:hover { box-shadow: 0 12px 24px rgba(0,0,0,0.25); }
 
 .hero { min-height: 800px; display: grid; place-items: center; position: relative; color: var(--white); text-align: center; padding: 0 16px; background-color: #241f17; background-image: url('assets/hero_background.png'), url('https://images.unsplash.com/photos/people-near-buildings-during-daytime-F6BMKcRruiY?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat; }
