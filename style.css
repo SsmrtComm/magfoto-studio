@@ -112,10 +112,6 @@ summary { cursor: pointer; font-weight: 700; }
 .text-center { text-align: center; }
 
 .contact-panel { background: var(--white); border-radius: 16px; box-shadow: 0 16px 40px rgba(0,0,0,0.12); padding: 2.2rem; max-width: 760px; margin-inline:auto; }
-.contact-methods { display: flex; justify-content: center; margin-bottom: 1.8rem; }
-.btn-whatsapp { background: #25D366; color: var(--white); border-color: #25D366; }
-.btn-whatsapp:hover { background: #1FAE53; border-color: #1FAE53; box-shadow: 0 10px 22px rgba(37, 211, 102, 0.3); }
-.whatsapp-icon { margin-right: 0.5rem; }
 .contact-form { display:grid; gap: 1rem; }
 .form-row { display:flex; flex-direction:column; gap:0.3rem; }
 .form-row label { color: var(--text-secondary); font-weight: 600; }
