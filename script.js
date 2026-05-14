@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form submission handler (Formspree via AJAX)
+    // Form submission handler (Formspree via AJAX + WhatsApp)
     const form = document.getElementById('contactForm');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -24,12 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.innerText = 'Sending...';
         btn.disabled = true;
 
+        // Collect form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        // Create WhatsApp message
+        const whatsappMessage = `New MagFoto Request:\n\nName: ${data.name}\nEmail: ${data.email}\nEvent Type: ${data.event_type}\nEvent Date: ${data.event_date}\nGuests: ${data.guests}\nBudget: ${data.budget}\nDetails: ${data.details}`;
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappUrl = `https://wa.me/491525880014?text=${encodedMessage}`;
+
+        // Send to email via Formspree
         fetch(form.action, {
             method: 'POST',
-            body: new FormData(form),
+            body: formData,
             headers: { 'Accept': 'application/json' }
         }).then(res => {
             if (res.ok) {
+                // Open WhatsApp with pre-filled message
+                window.open(whatsappUrl, '_blank');
+
                 btn.innerText = 'Sent! ✓';
                 form.reset();
                 setTimeout(() => {
