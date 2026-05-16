@@ -15,34 +15,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form submission handler (Formspree via AJAX)
+    // Form submission handler (direct to webhook)
     const form = document.getElementById('contactForm');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const btn = form.querySelector('button');
+        const statusDiv = document.getElementById('form-status');
         const originalText = btn.innerText;
-        btn.innerText = 'Sending...';
+        btn.innerText = 'Wird gesendet...';
         btn.disabled = true;
 
-        fetch(form.action, {
+        // Convert form data to JSON
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        fetch('/api/webhook', {
             method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
         }).then(res => {
             if (res.ok) {
-                btn.innerText = 'Sent! ✓';
+                btn.innerText = 'Versendet! ✓';
+                statusDiv.style.display = 'block';
+                statusDiv.innerText = 'Anfrage erhalten! Wir melden uns schnellstmöglich.';
+                statusDiv.style.color = 'green';
                 form.reset();
                 setTimeout(() => {
                     btn.innerText = originalText;
                     btn.disabled = false;
+                    statusDiv.style.display = 'none';
                     document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
-                }, 2000);
+                }, 3000);
             } else {
-                btn.innerText = 'Error — try again';
+                btn.innerText = 'Fehler — bitte versuchen Sie erneut';
+                statusDiv.style.display = 'block';
+                statusDiv.innerText = 'Fehler beim Versenden. Bitte später erneut versuchen.';
+                statusDiv.style.color = 'red';
                 btn.disabled = false;
             }
-        }).catch(() => {
-            btn.innerText = 'Error — try again';
+        }).catch(err => {
+            btn.innerText = 'Fehler — bitte versuchen Sie erneut';
+            statusDiv.style.display = 'block';
+            statusDiv.innerText = 'Verbindungsfehler. Bitte später erneut versuchen.';
+            statusDiv.style.color = 'red';
             btn.disabled = false;
         });
     });
