@@ -213,7 +213,7 @@
       <div class="container contact-panel">
         <h2>Save the Date</h2>
         <p>Erzählen Sie uns von Ihrem Event und wir senden ein Angebot innerhalb von 24 Stunden.</p>
-        <form id="contactForm" class="contact-form">
+        <form id="contactForm" action="https://formspree.io/f/xeepqjeq" method="POST" class="contact-form">
           <input type="hidden" id="package" name="package" value="" />
           <div class="form-row"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Ihr Name" /></div>
           <div class="form-row"><label for="email">E-Mail</label><input id="email" name="email" type="email" required placeholder="ihre@email.de" /></div>
@@ -223,7 +223,6 @@
           <div class="form-row"><label for="budget">Budgetbereich</label><select id="budget" name="budget"><option value="">Budget auswählen</option><option value="890-1390">€890 - €1.390</option><option value="1390-1990">€1.390 - €1.990</option><option value="1990-2900">€1.990 - €2.900</option></select></div>
           <div class="form-row"><label for="details">Eventdetails</label><textarea id="details" name="details" rows="4" placeholder="Ort, Gäste, Stimmung, besondere Wünsche"></textarea></div>
           <button type="submit" class="btn btn-primary">Anfrage senden</button>
-          <div id="form-status" style="display:none; margin-top:1rem; padding:1rem; text-align:center;"></div>
         </form>
       </div>
     </section>
