@@ -4,5 +4,6 @@
     "TWILIO_AUTH_TOKEN": "@twilio_auth_token",
     "TWILIO_WHATSAPP_NUMBER": "@twilio_whatsapp_number",
     "TWILIO_PERSONAL_WHATSAPP": "@twilio_personal_whatsapp"
-  }
+  },
+  "public": true
 }
